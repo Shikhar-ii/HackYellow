@@ -5,10 +5,10 @@ function showToast(msg){
   toast.textContent = msg;
   toast.hidden = false;
   clearTimeout(showToast.t);
-  showToast.t = setTimeout(() => (toast.hidden = true), 1600);
+  showToast.t = setTimeout(() => (toast.hidden = true), 1500);
 }
 
-// Mobile menu
+// mobile menu
 const menuBtn = document.getElementById("menuBtn");
 const mobileMenu = document.getElementById("mobileMenu");
 menuBtn?.addEventListener("click", () => {
@@ -16,65 +16,64 @@ menuBtn?.addEventListener("click", () => {
   menuBtn.setAttribute("aria-expanded", String(!open));
   mobileMenu.hidden = open;
 });
-document.querySelectorAll(".mobile__link").forEach(a => {
+document.querySelectorAll(".m").forEach(a => {
   a.addEventListener("click", () => {
     menuBtn.setAttribute("aria-expanded", "false");
     mobileMenu.hidden = true;
   });
 });
 
-// Copy registration link
+// copy reg link
 document.getElementById("copyReg")?.addEventListener("click", async () => {
   try{
     await navigator.clipboard.writeText(regURL);
-    showToast("Registration link copied.");
+    showToast("Copied.");
   }catch{
-    showToast("Copy failed — please copy manually.");
+    showToast("Copy failed.");
   }
 });
 
 // FAQ accordion
-document.querySelectorAll(".faq__q").forEach(btn => {
+document.querySelectorAll(".q").forEach(btn => {
   btn.addEventListener("click", () => {
     const expanded = btn.getAttribute("aria-expanded") === "true";
     const panel = btn.nextElementSibling;
     btn.setAttribute("aria-expanded", String(!expanded));
-    btn.querySelector(".faq__icon").textContent = expanded ? "+" : "–";
+    btn.querySelector(".pm").textContent = expanded ? "+" : "–";
     panel.hidden = expanded;
   });
 });
 
-// Typewriter
-const lines = [
-  "pull air quality data from APIs…",
-  "analyze time-series signals…",
-  "detect anomalies & integrity failures…",
-  "build a sensor trust model/score…",
-  "stress-test with bad data…",
-  "present your defense plan + demo."
+// Typewriter (short + punchy)
+const items = [
+  "pull air quality data from APIs",
+  "find time-series anomalies",
+  "detect integrity failures",
+  "build a sensor trust score",
+  "stress-test with bad data",
+  "demo your defense plan"
 ];
 
-const typeEl = document.getElementById("typeText");
-let li = 0, ci = 0, deleting = false;
+const el = document.getElementById("typeText");
+let i = 0, j = 0, del = false;
 
-function typeLoop(){
-  const current = lines[li];
-  if(!deleting){
-    ci++;
-    typeEl.textContent = current.slice(0, ci);
-    if(ci >= current.length){
-      deleting = true;
-      setTimeout(typeLoop, 900);
-      return;
+function loop(){
+  const word = items[i];
+  if(!del){
+    j++;
+    el.textContent = word.slice(0, j);
+    if(j === word.length){
+      del = true;
+      return setTimeout(loop, 900);
     }
   }else{
-    ci--;
-    typeEl.textContent = current.slice(0, ci);
-    if(ci <= 0){
-      deleting = false;
-      li = (li + 1) % lines.length;
+    j--;
+    el.textContent = word.slice(0, j);
+    if(j === 0){
+      del = false;
+      i = (i + 1) % items.length;
     }
   }
-  setTimeout(typeLoop, deleting ? 28 : 38);
+  setTimeout(loop, del ? 26 : 34);
 }
-typeLoop();
+loop();
