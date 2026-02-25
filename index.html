@@ -7,236 +7,167 @@
   <meta name="description" content="HackHive — WVSU Environmental Science Hackathon. April 3–4, 2026." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <!-- NAV -->
   <header class="nav">
     <div class="nav__inner">
-      <a class="nav__brand" href="#top" id="top">
-        <span class="nav__dot"></span>
-        <span>HackHive</span>
-      </a>
+      <a class="nav__brand" href="#top" id="top">HackHive</a>
 
       <nav class="nav__links" id="navLinks">
-        <a href="#about" class="nav__link">About</a>
-        <a href="#doing" class="nav__link">What you’ll do</a>
-        <a href="#speakers" class="nav__link">Speakers</a>
-        <a href="#partners" class="nav__link">Partners</a>
-        <a href="#faq" class="nav__link">FAQ</a>
+        <a href="#about">About</a>
+        <a href="#doing">What you’ll do</a>
+        <a href="#speakers">Speaker</a>
+        <a href="#partners">Partner</a>
+        <a href="#faq">FAQ</a>
       </nav>
 
-      <div class="nav__actions">
-        <a class="btn btn--ghost" href="#faq">FAQ</a>
+      <div class="nav__right">
         <a class="btn btn--primary" href="https://ms-cc.org/ms-cc-hackathon-at-west-virginia-state-university/" target="_blank" rel="noopener">
           Register
         </a>
-        <button class="menu" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+        <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
       </div>
     </div>
 
-    <!-- Mobile menu -->
     <div class="mobile" id="mobileMenu" hidden>
-      <a href="#about" class="mobile__link">About</a>
-      <a href="#doing" class="mobile__link">What you’ll do</a>
-      <a href="#speakers" class="mobile__link">Speakers</a>
-      <a href="#partners" class="mobile__link">Partners</a>
-      <a href="#faq" class="mobile__link">FAQ</a>
-      <a class="btn btn--primary mobile__cta" href="https://ms-cc.org/ms-cc-hackathon-at-west-virginia-state-university/" target="_blank" rel="noopener">Register</a>
+      <a href="#about" class="m">About</a>
+      <a href="#doing" class="m">What you’ll do</a>
+      <a href="#speakers" class="m">Speaker</a>
+      <a href="#partners" class="m">Partner</a>
+      <a href="#faq" class="m">FAQ</a>
+      <a class="btn btn--primary btn--full"
+         href="https://ms-cc.org/ms-cc-hackathon-at-west-virginia-state-university/"
+         target="_blank" rel="noopener">Register</a>
     </div>
   </header>
 
   <!-- HERO -->
   <main class="hero">
-    <!-- Animated background canvas-ish -->
-    <div class="fx" aria-hidden="true">
-      <div class="blob b1"></div>
-      <div class="blob b2"></div>
-      <div class="blob b3"></div>
-      <div class="spark s1"></div>
-      <div class="spark s2"></div>
+    <!-- background graphics -->
+    <div class="bg" aria-hidden="true">
+      <div class="blob blob--gold"></div>
+      <div class="blob blob--ink"></div>
+      <div class="ring"></div>
       <div class="grain"></div>
     </div>
 
-    <section class="hero__inner">
-      <!-- BOARD -->
+    <section class="wrap">
+      <!-- floating micro copy like treehacks -->
+      <div class="floatCopy" aria-hidden="true">
+        <div class="floatCopy__line">cybersecurity × sustainability</div>
+        <div class="floatCopy__line">air quality data</div>
+        <div class="floatCopy__line">trust models</div>
+        <div class="floatCopy__line">two days</div>
+      </div>
+
+      <!-- the board -->
       <div class="board">
-        <div class="board__top">
-          <span class="pill">WVSU • Environmental Science Hackathon</span>
-          <span class="pill pill--mono">Cybersecurity × Air Quality Data</span>
-        </div>
-
-        <h1 class="board__title">
-          HackHive
-        </h1>
-
-        <div class="board__date">
-          April 3–4, 2026
-        </div>
+        <div class="board__cap">West Virginia State University</div>
+        <h1 class="board__title">HackHive</h1>
+        <div class="board__date">April 3–4, 2026</div>
 
         <p class="board__sub">
-          Protect sensor data. Detect anomalies. Build trust models. Ship something real.
+          Environmental Science Hackathon • secure sensor networks • build trust • ship a demo
         </p>
 
-        <div class="board__cta">
-          <a class="btn btn--primary btn--lg"
+        <div class="board__actions">
+          <a class="btn btn--primary btn--big"
              href="https://ms-cc.org/ms-cc-hackathon-at-west-virginia-state-university/"
              target="_blank" rel="noopener">
             Register
           </a>
-          <button class="btn btn--ghost btn--lg" id="copyReg" type="button">
-            Copy registration link
-          </button>
-        </div>
-
-        <div class="ticker" aria-label="Highlights">
-          <div class="ticker__track">
-            <span>⚡ 2 days</span>
-            <span>🧠 mentors</span>
-            <span>🛰️ sensor networks</span>
-            <span>🛡️ data integrity</span>
-            <span>📊 time-series</span>
-            <span>🎤 demos</span>
-            <span>⚡ 2 days</span>
-            <span>🧠 mentors</span>
-            <span>🛰️ sensor networks</span>
-            <span>🛡️ data integrity</span>
-            <span>📊 time-series</span>
-            <span>🎤 demos</span>
-          </div>
+          <button class="btn btn--ghost btn--big" id="copyReg" type="button">Copy link</button>
         </div>
       </div>
 
-      <!-- RIGHT SIDE: tiny about + typewriter -->
-      <div class="heroSide">
-        <div class="heroSide__card" id="about">
+      <!-- short, not-book-ish blocks -->
+      <section class="blocks">
+        <div class="block" id="about">
           <h2>About</h2>
           <p>
             HackHive is a two-day hackathon hosted at <strong>West Virginia State University</strong> in partnership with
-            MS-CC and ESIIL. You’ll work with real-world air quality data from distributed sensor networks and explore
-            how cybersecurity threats can quietly break systems communities rely on.
+            <strong>MS-CC</strong> and <strong>ESIIL</strong>.
+            Work with real air quality sensor data and explore how data integrity attacks can quietly break systems communities rely on.
           </p>
         </div>
 
-        <div class="heroSide__card" id="doing">
+        <div class="block" id="doing">
           <h2>What you’ll do</h2>
           <p class="type">
-            <span class="type__prefix">You’ll:</span>
-            <span class="type__text" id="typeText"></span><span class="type__cursor" aria-hidden="true">▍</span>
+            <span class="type__label">You’ll</span>
+            <span class="type__text" id="typeText"></span><span class="type__cursor">▍</span>
           </p>
-
-          <div class="miniGrid">
-            <div class="mini">
-              <div class="mini__k">When</div>
-              <div class="mini__v">Apr 3–4, 2026</div>
-            </div>
-            <div class="mini">
-              <div class="mini__k">Where</div>
-              <div class="mini__v">WVSU</div>
-            </div>
-            <div class="mini">
-              <div class="mini__k">Travel</div>
-              <div class="mini__v">Eligible within 250 miles</div>
-            </div>
+          <div class="meta">
+            <div><span>📍</span> WVSU</div>
+            <div><span>🗓️</span> Apr 3–4</div>
+            <div><span>🧳</span> Travel support within 250 miles (eligible)</div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- SPEAKERS -->
-    <section class="section" id="speakers">
-      <div class="section__head">
-        <h2>Speaker</h2>
-      </div>
-
-      <div class="cards">
-        <a class="card card--link"
-           href="https://wvstateu.edu/college-of-natural-sciences-and-mathematics/author/ali-alsinayyid/"
-           target="_blank" rel="noopener">
-          <div class="card__tag">Featured Speaker</div>
-          <div class="card__title">Dr. Ali Alsinayyid</div>
-          <div class="card__meta">West Virginia State University</div>
-          <div class="card__hint">View profile →</div>
-        </a>
-      </div>
-    </section>
-
-    <!-- PARTNERS -->
-    <section class="section" id="partners">
-      <div class="section__head">
-        <h2>Partner / Sponsor</h2>
-      </div>
-
-      <div class="cards">
-        <a class="card card--link"
-           href="https://ms-cc.org/ms-cc-hackathon-at-west-virginia-state-university/"
-           target="_blank" rel="noopener">
-          <div class="card__tag">Partner</div>
-          <div class="card__title">Minority Serving-Cyberinfrastructure Consortium (MS-CC)</div>
-          <div class="card__meta">Event details & registration</div>
-          <div class="card__hint">Open page →</div>
-        </a>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section" id="faq">
-      <div class="section__head">
-        <h2>FAQ</h2>
-      </div>
-
-      <div class="faq">
-        <button class="faq__q" aria-expanded="false">
-          Who can register?
-          <span class="faq__icon">+</span>
-        </button>
-        <div class="faq__a" hidden>
-          Registration is open to students from MS-CC participating organizations (per the event registration page).
+        <div class="block" id="speakers">
+          <h2>Speaker</h2>
+          <a class="linkRow"
+             href="https://wvstateu.edu/college-of-natural-sciences-and-mathematics/author/ali-alsinayyid/"
+             target="_blank" rel="noopener">
+            <span class="dot"></span>
+            <span>Dr. Ali Alsinayyid</span>
+            <span class="arrow">→</span>
+          </a>
         </div>
 
-        <button class="faq__q" aria-expanded="false">
-          What will I build?
-          <span class="faq__icon">+</span>
-        </button>
-        <div class="faq__a" hidden>
-          A solution that detects sensor reliability issues, builds a trust model/score, and proposes cybersecurity defenses—then demo it.
+        <div class="block" id="partners">
+          <h2>Partner / Sponsor</h2>
+          <a class="linkRow"
+             href="https://ms-cc.org/ms-cc-hackathon-at-west-virginia-state-university/"
+             target="_blank" rel="noopener">
+            <span class="dot"></span>
+            <span>Minority Serving-Cyberinfrastructure Consortium (MS-CC)</span>
+            <span class="arrow">→</span>
+          </a>
         </div>
 
-        <button class="faq__q" aria-expanded="false">
-          Is travel support available?
-          <span class="faq__icon">+</span>
-        </button>
-        <div class="faq__a" hidden>
-          Travel support (mileage/hotel) may be available for eligible participants within 250 miles of WVSU (see registration page for rules).
-        </div>
+        <div class="block" id="faq">
+          <h2>FAQ</h2>
 
-        <button class="faq__q" aria-expanded="false">
-          Do I need a team?
-          <span class="faq__icon">+</span>
-        </button>
-        <div class="faq__a" hidden>
-          You can come solo—team formation and mentor support are part of the event flow.
-        </div>
-      </div>
+          <button class="q" aria-expanded="false">
+            Who can register? <span class="pm">+</span>
+          </button>
+          <div class="a" hidden>
+            Students from MS-CC participating organizations (per the registration page).
+          </div>
 
-      <div class="faq__cta">
-        <a class="btn btn--primary btn--lg"
-           href="https://ms-cc.org/ms-cc-hackathon-at-west-virginia-state-university/"
-           target="_blank" rel="noopener">
-          Register now
-        </a>
-      </div>
+          <button class="q" aria-expanded="false">
+            What will I build? <span class="pm">+</span>
+          </button>
+          <div class="a" hidden>
+            A trust model/score to detect unreliable sensors + analysis + defense recommendations + a demo/presentation.
+          </div>
+
+          <button class="q" aria-expanded="false">
+            Is travel support available? <span class="pm">+</span>
+          </button>
+          <div class="a" hidden>
+            Travel support may be available for eligible participants within 250 miles (see registration page for rules).
+          </div>
+
+          <div class="endCTA">
+            <a class="btn btn--primary btn--big"
+               href="https://ms-cc.org/ms-cc-hackathon-at-west-virginia-state-university/"
+               target="_blank" rel="noopener">
+              Register now
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div>Made with love — Shikhar</div>
+        <a href="#top">Back to top ↑</a>
+      </footer>
     </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="footer__inner">
-        <div class="footer__left">Made with <span class="heart">♥</span> — Shikhar</div>
-        <a class="footer__top" href="#top">Back to top ↑</a>
-      </div>
-    </footer>
   </main>
 
   <div class="toast" id="toast" hidden></div>
