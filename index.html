@@ -3,587 +3,426 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WVSU MS-CC Environmental Science Hackathon • April 3–4, 2026</title>
-  <meta name="description" content="Securing Air Quality Data in Distributed Sensor Networks — MS-CC Environmental Science Hackathon at West Virginia State University, April 3–4, 2026." />
+  <title>HackerHives • WVSU Environmental Science Hackathon • Apr 3–4, 2026</title>
+  <meta name="description" content="HackerHives — West Virginia State University Environmental Science Hackathon (Cybersecurity + Air Quality Data). Apr 3–4, 2026." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <!-- Top progress bar -->
-  <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
-
-  <!-- Announcement -->
-  <div class="announce" role="status" aria-live="polite">
-    <div class="container announce__inner">
-      <span class="badge">April 3–4, 2026</span>
-      <span class="announce__text">
-        MS-CC Environmental Science Hackathon at <strong>West Virginia State University</strong> • Registration open to all students
-      </span>
-      <a class="announce__link" href="#register">Register</a>
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div class="topbar__left">
+        <span class="chip chip--gold">Apr 3–4, 2026</span>
+        <span class="topbar__text">West Virginia State University • Environmental Science Hackathon</span>
+      </div>
+      <a class="topbar__cta" href="#register">Register</a>
     </div>
   </div>
 
   <!-- Nav -->
-  <header class="nav" id="top">
-    <div class="container nav__inner">
-      <a class="brand" href="#top" aria-label="WVSU Hackathon home">
-        <span class="brand__mark" aria-hidden="true">WVSU</span>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="#top" id="top">
+        <span class="brand__logo">HH</span>
         <span class="brand__text">
-          <span class="brand__title">MS-CC Hackathon</span>
-          <span class="brand__sub">Securing Air Quality Data</span>
+          <span class="brand__name">HackerHives</span>
+          <span class="brand__sub">WVSU • Cyber + Air Quality Data</span>
         </span>
       </a>
 
-      <nav class="nav__links" id="navLinks" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#challenge">Challenge</a>
-        <a href="#schedule">Schedule</a>
-        <a href="#logistics">Logistics</a>
-        <a href="#faq">FAQ</a>
-        <a href="#conduct">Code of Conduct</a>
+      <nav class="nav" id="nav">
+        <a href="#about" class="nav__link">About</a>
+        <a href="#why" class="nav__link">Why</a>
+        <a href="#schedule" class="nav__link">Schedule</a>
+        <a href="#logistics" class="nav__link">Logistics</a>
+        <a href="#faq" class="nav__link">FAQ</a>
       </nav>
 
-      <div class="nav__actions">
-        <button class="iconbtn" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme">
-          <span id="themeIcon" aria-hidden="true">☾</span>
-        </button>
+      <div class="header__actions">
+        <a class="btn btn--ghost" href="#schedule">View Schedule</a>
         <a class="btn btn--primary" href="#register">Register</a>
-        <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-          <span></span><span></span><span></span>
-        </button>
+        <button class="menu" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
       </div>
     </div>
 
-    <!-- Mobile menu -->
-    <div class="mobile" id="mobileMenu" hidden>
+    <!-- Mobile nav -->
+    <div class="mobile" id="mobileNav" hidden>
       <div class="container mobile__inner">
         <a href="#about" class="mobile__link">About</a>
-        <a href="#challenge" class="mobile__link">Challenge</a>
+        <a href="#why" class="mobile__link">Why</a>
         <a href="#schedule" class="mobile__link">Schedule</a>
         <a href="#logistics" class="mobile__link">Logistics</a>
         <a href="#faq" class="mobile__link">FAQ</a>
-        <a href="#conduct" class="mobile__link">Code of Conduct</a>
         <a class="btn btn--primary mobile__cta" href="#register">Register</a>
       </div>
     </div>
   </header>
 
   <!-- Hero -->
-  <main>
-    <section class="hero">
-      <div class="hero__bg" aria-hidden="true">
-        <div class="glow glow--1"></div>
-        <div class="glow glow--2"></div>
-        <div class="grid"></div>
-      </div>
+  <section class="hero">
+    <div class="hero__fx" aria-hidden="true">
+      <div class="blob blob--1"></div>
+      <div class="blob blob--2"></div>
+      <div class="noise"></div>
+      <div class="grid"></div>
+    </div>
 
-      <div class="container hero__inner">
-        <div class="hero__left">
-          <div class="kicker">
-            <span class="pill">WVSU • Charleston / Cross Lanes, WV</span>
-            <span class="pill pill--outline">Cybersecurity × Data Science × IoT</span>
+    <div class="container hero__inner">
+      <div class="hero__copy">
+        <div class="hero__kicker">
+          <span class="chip">Cybersecurity × Sustainability</span>
+          <span class="chip chip--outline">APIs • Time-series • Open source</span>
+        </div>
+
+        <h1>
+          HackerHives
+          <span class="h1__accent">Environmental Science Hackathon</span>
+        </h1>
+
+        <p class="hero__lead">
+          West Virginia State University is excited to host a two-day hackathon in partnership with
+          <strong>MS-CC</strong> and <strong>ESIIL</strong>. Tackle real-world air quality data challenges, build sensor trust models,
+          and design cybersecurity defenses for distributed sensor networks.
+        </p>
+
+        <div class="hero__meta">
+          <div class="pill">
+            <div class="pill__k">When</div>
+            <div class="pill__v">April 3–4, 2026</div>
           </div>
-
-          <h1>
-            Securing Air Quality Data in
-            <span class="accent">Distributed Sensor Networks</span>
-          </h1>
-
-          <p class="lead">
-            A two-day hackathon where you’ll analyze real-world air quality time-series data, detect integrity failures,
-            build a <strong>sensor trust model</strong>, and propose cybersecurity defenses for resilient environmental monitoring.
-          </p>
-
-          <div class="hero__meta">
-            <div class="metaCard">
-              <div class="metaCard__label">Date</div>
-              <div class="metaCard__value">April 3–4, 2026</div>
-            </div>
-            <div class="metaCard">
-              <div class="metaCard__label">Eligibility</div>
-              <div class="metaCard__value">Open to all students</div>
-            </div>
-            <div class="metaCard">
-              <div class="metaCard__label">Travel Support</div>
-              <div class="metaCard__value">Within 250 miles*</div>
-            </div>
+          <div class="pill">
+            <div class="pill__k">Where</div>
+            <div class="pill__v">West Virginia State University</div>
           </div>
-
-          <div class="hero__cta">
-            <!-- Replace the href with your WVSU registration link -->
-            <a class="btn btn--primary btn--lg" href="#" target="_blank" rel="noopener">
-              Register Now
-            </a>
-            <a class="btn btn--ghost btn--lg" href="#schedule">View Schedule</a>
-          </div>
-
-          <div class="countdown" aria-label="Countdown to event">
-            <div class="countdown__title">Countdown to kickoff</div>
-            <div class="countdown__grid">
-              <div class="timebox"><div class="timebox__num" id="cdDays">—</div><div class="timebox__label">Days</div></div>
-              <div class="timebox"><div class="timebox__num" id="cdHours">—</div><div class="timebox__label">Hours</div></div>
-              <div class="timebox"><div class="timebox__num" id="cdMins">—</div><div class="timebox__label">Minutes</div></div>
-              <div class="timebox"><div class="timebox__num" id="cdSecs">—</div><div class="timebox__label">Seconds</div></div>
-            </div>
-            <div class="fineprint">*Travel reimbursement is limited and applies to eligible participants per MS-CC rules.</div>
+          <div class="pill">
+            <div class="pill__k">Who</div>
+            <div class="pill__v">MS-CC participating org students</div>
           </div>
         </div>
 
-        <div class="hero__right">
-          <div class="panel">
-            <div class="panel__header">
-              <div class="panel__title">What you’ll do</div>
-              <div class="panel__tag">Hands-on • Team-based • Mentored</div>
-            </div>
+        <div class="hero__cta">
+          <a class="btn btn--primary btn--lg" href="https://ms-cc.org/ms-cc-hackathon-at-west-virginia-state-university/" target="_blank" rel="noopener">
+            Register Here
+          </a>
+          <button class="btn btn--ghost btn--lg" id="copyLink" type="button">Copy registration link</button>
+        </div>
 
-            <ul class="checklist">
-              <li>Access and analyze air quality data using APIs + time-series workflows</li>
-              <li>Detect real air quality events and anomalies across distributed sensors</li>
-              <li>Build a <strong>trust score</strong> to flag unreliable or compromised sources</li>
-              <li>Stress-test your logic with simulated bad data</li>
-              <li>Present a defensible security plan and recommendations</li>
-            </ul>
-
-            <div class="panel__footer">
-              <div class="mini">
-                <div class="mini__k">Awards</div>
-                <div class="mini__v">Technical rigor • Defensive strategy • Clarity of reasoning</div>
-              </div>
-              <div class="mini">
-                <div class="mini__k">Opportunities</div>
-                <div class="mini__v">Top projects may be highlighted at MS-CC events + future mentorship</div>
-              </div>
-            </div>
+        <div class="countdown" aria-label="Countdown">
+          <div class="countdown__title">Countdown to kickoff</div>
+          <div class="countdown__row">
+            <div class="box"><span id="d">—</span><small>Days</small></div>
+            <div class="box"><span id="h">—</span><small>Hours</small></div>
+            <div class="box"><span id="m">—</span><small>Min</small></div>
+            <div class="box"><span id="s">—</span><small>Sec</small></div>
           </div>
-
-          <div class="stats">
-            <div class="stat">
-              <div class="stat__num">2</div>
-              <div class="stat__label">Days</div>
-            </div>
-            <div class="stat">
-              <div class="stat__num">1</div>
-              <div class="stat__label">Challenge</div>
-            </div>
-            <div class="stat">
-              <div class="stat__num">∞</div>
-              <div class="stat__label">Ideas</div>
-            </div>
-          </div>
+          <div class="fine">Travel support available for eligible participants within 250 miles.</div>
         </div>
       </div>
-    </section>
 
-    <!-- About -->
-    <section class="section" id="about">
-      <div class="container">
-        <div class="section__head">
-          <h2>About the hackathon</h2>
-          <p>
-            The MS-CC Environmental Science Hackathon at WVSU invites students to tackle real-world sustainability and rural resilience
-            challenges using data science, AI, and open-source tools — with a cybersecurity mindset.
-          </p>
-        </div>
-
-        <div class="cards">
-          <article class="card">
-            <h3>Why this matters</h3>
-            <p>
-              Distributed networks of low-cost sensors are used where traditional monitoring is limited.
-              Communities may rely on this data for health, environmental, and operational decisions.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Threats are subtle</h3>
-            <p>
-              Sensors can report faulty data, APIs can be misused, and decision systems can be misled by incomplete or manipulated signals.
-              Your job is to detect and defend.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Realistic learning</h3>
-            <p>
-              You’ll work like a security professional protecting data pipelines under uncertainty—skills that transfer to public health,
-              environmental monitoring, and IoT systems.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Challenge -->
-    <section class="section section--alt" id="challenge">
-      <div class="container">
-        <div class="split">
-          <div>
-            <h2>The challenge</h2>
-            <p class="lead2">
-              Build a <strong>sensor trust model</strong> that helps identify unreliable or compromised air quality sensors.
-            </p>
-
-            <div class="bullets">
-              <div class="bullet">
-                <div class="bullet__icon">🛰️</div>
-                <div>
-                  <div class="bullet__title">Distributed sensors</div>
-                  <div class="bullet__text">Work with data from a network of low-cost air quality sensors.</div>
-                </div>
-              </div>
-
-              <div class="bullet">
-                <div class="bullet__icon">🧪</div>
-                <div>
-                  <div class="bullet__title">Detect an event</div>
-                  <div class="bullet__text">Find a real air quality event and assess sensor reliability signals.</div>
-                </div>
-              </div>
-
-              <div class="bullet">
-                <div class="bullet__icon">🛡️</div>
-                <div>
-                  <div class="bullet__title">Defend the pipeline</div>
-                  <div class="bullet__text">Propose practical cybersecurity defenses and resilience recommendations.</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="callout">
-              <div class="callout__title">Judging criteria</div>
-              <div class="callout__text">
-                Technical approach • Trust model effectiveness • Defensive strategy • Clarity of explanation
-              </div>
-            </div>
-          </div>
-
-          <div class="mock">
-            <div class="mock__top">
-              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-              <span class="mock__title">trust-model.ipynb</span>
-            </div>
-            <div class="mock__body">
-              <pre><code><span class="cmt"># Example concept (you'll implement your own logic)</span>
-trust_score = w1 * data_quality
-            + w2 * anomaly_rate
-            + w3 * consistency_with_neighbors
-            + w4 * api_behavior_risk
-
-<span class="cmt"># Flag sensors below threshold</span>
-compromised = trust_score &lt; 0.55</code></pre>
-              <div class="mock__note">Bring any stack: Python/R/JS • notebooks • dashboards • APIs • open-source tools</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Schedule -->
-    <section class="section" id="schedule">
-      <div class="container">
-        <div class="section__head">
-          <h2>Event schedule</h2>
-          <p>Two days of learning, building, mentoring, and presenting. Times can be refined later—this page is ready now.</p>
-        </div>
-
-        <div class="tabs" role="tablist" aria-label="Schedule days">
-          <button class="tab is-active" id="tabDay1" role="tab" aria-selected="true" aria-controls="panelDay1" type="button">Day 1</button>
-          <button class="tab" id="tabDay2" role="tab" aria-selected="false" aria-controls="panelDay2" type="button">Day 2</button>
-        </div>
-
-        <div class="tabpanels">
-          <div class="tabpanel is-active" id="panelDay1" role="tabpanel" aria-labelledby="tabDay1">
-            <div class="timeline">
-              <div class="slot">
-                <div class="slot__time">Morning</div>
-                <div class="slot__body">
-                  <h3>Welcome & Introductions</h3>
-                  <ul>
-                    <li>Hackathon theme: cybersecurity and trust in distributed sensor networks</li>
-                    <li>Overview of air quality data systems and real-world use cases</li>
-                    <li>Mentor introductions & expectations</li>
-                    <li>Ice-breaker & team formation (if not pre-formed)</li>
-                    <li>Technical setup tutorial: API access, time-series exploration, visualization, anomaly detection</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="slot">
-                <div class="slot__time">Afternoon</div>
-                <div class="slot__body">
-                  <h3>Understand the challenge</h3>
-                  <ul>
-                    <li>Detect a real air quality event</li>
-                    <li>Team ideation and analysis planning</li>
-                    <li>Lunch / networking</li>
-                    <li>Work block with mentor support</li>
-                    <li><strong>Checkpoint #1:</strong> detection approach + initial reliability observations</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="slot">
-                <div class="slot__time">Evening</div>
-                <div class="slot__body">
-                  <h3>Build momentum</h3>
-                  <ul>
-                    <li>Continued work session (snack break)</li>
-                    <li>Optional lightning talk: how cyber attacks affect sensor networks / common integrity failures</li>
-                    <li>Day 1 wrap-up: stand-ups + plan for trust model development on Day 2</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tabpanel" id="panelDay2" role="tabpanel" aria-labelledby="tabDay2">
-            <div class="timeline">
-              <div class="slot">
-                <div class="slot__time">Morning</div>
-                <div class="slot__body">
-                  <h3>Trust model development</h3>
-                  <ul>
-                    <li>Quick recap & objectives</li>
-                    <li>Work block: build a sensor trust score and evaluate reliability across sensors</li>
-                    <li><strong>Checkpoint #2:</strong> trust logic + anomalies / compromised data detected</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="slot">
-                <div class="slot__time">Afternoon</div>
-                <div class="slot__body">
-                  <h3>Final sprint + presentations</h3>
-                  <ul>
-                    <li>Stress-test trust logic with simulated bad data</li>
-                    <li>Develop defensive recommendations</li>
-                    <li>Project submission: repo + short presentation/demo</li>
-                    <li>Final presentations (10–15 minutes)</li>
-                    <li>Judging & awards + closing remarks and networking</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="note">
-          <strong>Tip:</strong> If you want, I can add exact times + locations (room/building) once you have them.
-        </div>
-      </div>
-    </section>
-
-    <!-- Logistics -->
-    <section class="section section--alt" id="logistics">
-      <div class="container">
-        <div class="section__head">
-          <h2>Logistics</h2>
-          <p>Travel, hotel, parking, and reimbursements—everything in one place.</p>
-        </div>
-
-        <div class="grid2">
-          <div class="card">
-            <h3>Hotel recommendation</h3>
-            <p class="mono">
-              Sleep Inn &amp; Suites Cross Lanes – South Charleston<br>
-              15 Goff Crossing Dr.<br>
-              Cross Lanes, WV 25313
-            </p>
-            <div class="row">
-              <button class="btn btn--ghost" type="button" id="copyHotel">Copy address</button>
-              <a class="btn btn--ghost" target="_blank" rel="noopener"
-                 href="https://www.google.com/maps/search/?api=1&query=Sleep%20Inn%20%26%20Suites%20Cross%20Lanes%20%E2%80%93%20South%20Charleston%2C%2015%20Goff%20Crossing%20Dr%2C%20Cross%20Lanes%2C%20WV%2025313">
-                Open in Maps
-              </a>
-            </div>
-            <p class="fineprint">Contact the hotel directly for daily rates and reservations.</p>
-          </div>
-
-          <div class="card">
-            <h3>Parking</h3>
-            <p>Parking information will be provided when it is available.</p>
-            <div class="divider"></div>
-            <h3>Travel support</h3>
-            <p>
-              Travel support (mileage, hotel, dinner per diem) is only available to students within a <strong>250-mile radius</strong> of WVSU,
-              and reimbursement is limited based on eligibility and budget.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Reimbursements</h3>
-            <ol class="steps">
-              <li>
-                <strong>Before the workshop (by March 27, 2026):</strong>
-                Complete the MS-CC Travel Support Acceptance Form as part of registration.
-              </li>
-              <li>
-                <strong>After the workshop (April 4, 2026):</strong>
-                Follow instructions in the post-workshop email to submit reimbursement requests.
-              </li>
-            </ol>
-            <p class="fineprint">
-              Mileage reimbursement applies within 250 miles. Hotel reimbursement applies to eligible MS-CC participants located more than 50 miles from the university.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Who should join?</h3>
-            <p>
-              Not an MS-CC participant yet? Becoming one is quick, easy, and free. Join the mailing list and stay informed about meetings and activities.
-            </p>
-            <div class="callout callout--small">
-              <div class="callout__title">Bring your skills</div>
-              <div class="callout__text">Beginner-friendly + mentor-supported. Teams can mix coders, analysts, and presenters.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section" id="faq">
-      <div class="container">
-        <div class="section__head">
-          <h2>FAQ</h2>
-          <p>Quick answers for participants.</p>
-        </div>
-
-        <div class="accordion" id="accordion">
-          <button class="acc" type="button" aria-expanded="false">
-            Who can register?
-            <span class="acc__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="acc__panel" hidden>
-            <p>Registration is open to all students.</p>
-          </div>
-
-          <button class="acc" type="button" aria-expanded="false">
-            Do I need a team?
-            <span class="acc__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="acc__panel" hidden>
-            <p>No. You can come solo—there will be ice-breakers and team formation if your team isn’t pre-formed.</p>
-          </div>
-
-          <button class="acc" type="button" aria-expanded="false">
-            What should I build?
-            <span class="acc__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="acc__panel" hidden>
-            <p>
-              Your deliverable can be a notebook, dashboard, pipeline, model, or small app—anything that detects integrity failures,
-              computes a sensor trust score, and explains defensive recommendations clearly.
-            </p>
-          </div>
-
-          <button class="acc" type="button" aria-expanded="false">
-            Is there travel reimbursement?
-            <span class="acc__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="acc__panel" hidden>
-            <p>
-              Yes, for eligible MS-CC participants. Support is limited and only available within a 250-mile radius of WVSU, with specific
-              rules for mileage/hotel and distance.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Code of Conduct -->
-    <section class="section section--alt" id="conduct">
-      <div class="container">
-        <div class="section__head">
-          <h2>Events code of conduct</h2>
-          <p>
-            Internet2 and the community are committed to a positive environment—professional, respectful, and inclusive.
-            Discrimination or harassment is not tolerated.
-          </p>
-        </div>
-
+      <div class="hero__card">
         <div class="card">
-          <h3>Expected behavior</h3>
-          <ul>
-            <li>Be respectful and professional</li>
-            <li>Welcome diverse perspectives and skill levels</li>
-            <li>Support a safe learning environment</li>
-          </ul>
-
-          <div class="divider"></div>
-
-          <h3>Unacceptable behavior includes</h3>
-          <ul>
-            <li>Offensive comments, intimidation, stalking, unwanted attention</li>
-            <li>Inappropriate physical contact</li>
-            <li>Harassing, derogatory, or demeaning conduct</li>
-          </ul>
-
-          <div class="divider"></div>
-
-          <p class="fineprint">
-            If you believe you or someone else has been subject to these behaviors, contact the Internet2 Ethics Hotline:
-            <strong>(877) 842-6829</strong>.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Register -->
-    <section class="section register" id="register">
-      <div class="container register__inner">
-        <div>
-          <h2>Ready to build something real?</h2>
-          <p class="lead2">
-            Join the MS-CC Hackathon at WVSU on <strong>April 3–4, 2026</strong>.
-            Learn, collaborate, and present a defensible trust model for sensor data.
-          </p>
-        </div>
-
-        <div class="register__card">
-          <div class="register__top">
-            <div class="badge badge--big">Registration</div>
-            <div class="register__title">MS-CC Hackathon at WVSU</div>
-            <div class="register__meta">April 3–4, 2026 • Open to all students</div>
+          <div class="card__top">
+            <span class="chip chip--gold">Theme</span>
+            <span class="mono">Securing Air Quality Data in Distributed Sensor Networks</span>
           </div>
 
-          <div class="register__actions">
-            <!-- Replace with your official WVSU registration link -->
-            <a class="btn btn--primary btn--lg" href="#" target="_blank" rel="noopener">Register (opens in new tab)</a>
-            <button class="btn btn--ghost btn--lg" type="button" id="copyShare">
-              Copy share text
-            </button>
+          <div class="card__body">
+            <ul class="list">
+              <li><strong>Work on real air quality data</strong> from distributed sensors</li>
+              <li><strong>Detect anomalies</strong> and integrity failures</li>
+              <li><strong>Build a sensor trust score</strong> to flag compromised sources</li>
+              <li><strong>Propose defenses</strong> to strengthen monitoring systems</li>
+              <li><strong>Pitch + present</strong> to judges for awards</li>
+            </ul>
           </div>
 
-          <p class="fineprint">
-            Travel support is limited and based on eligibility. See Logistics for reimbursement steps and deadlines.
-          </p>
+          <div class="card__bottom">
+            <div class="mini">
+              <div class="mini__k">Awards</div>
+              <div class="mini__v">Technical rigor • Defensive strategy • Clarity</div>
+            </div>
+            <div class="mini">
+              <div class="mini__k">Opportunities</div>
+              <div class="mini__v">Internships • Research • Mentorship (top projects)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stickerRow" aria-hidden="true">
+          <span class="sticker">⚡ build fast</span>
+          <span class="sticker">🧠 think like defense</span>
+          <span class="sticker">🌍 impact real communities</span>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <!-- Footer -->
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section__head">
+        <h2>About HackerHives</h2>
+        <p>
+          You’ll work with air quality data from low-cost sensor networks used in rural and under-resourced communities.
+          These systems matter — but they’re vulnerable to subtle cyber threats, faulty sensors, and manipulated APIs.
+        </p>
+      </div>
+
+      <div class="grid3">
+        <div class="panel">
+          <h3>Real-world challenge</h3>
+          <p>Detect real air quality events and evaluate sensor reliability under uncertainty.</p>
+        </div>
+        <div class="panel">
+          <h3>Build practical skills</h3>
+          <p>APIs, time-series workflows, anomaly detection, trust scoring, open-source tooling.</p>
+        </div>
+        <div class="panel">
+          <h3>Defense mindset</h3>
+          <p>Design cybersecurity recommendations to harden distributed data pipelines and IoT systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why -->
+  <section class="section section--alt" id="why">
+    <div class="container">
+      <div class="section__head">
+        <h2>Why participate?</h2>
+        <p>Hack like it matters. Because it does.</p>
+      </div>
+
+      <div class="why">
+        <div class="why__item">
+          <div class="why__icon">💡</div>
+          <div>
+            <h3>Work on real-world challenges</h3>
+            <p>Explore how cybersecurity and data integrity impact air quality systems communities rely on.</p>
+          </div>
+        </div>
+
+        <div class="why__item">
+          <div class="why__icon">⚒️</div>
+          <div>
+            <h3>Build technical skills</h3>
+            <p>Use APIs, time-series workflows, and open-source tools to detect and prevent compromised data.</p>
+          </div>
+        </div>
+
+        <div class="why__item">
+          <div class="why__icon">🎓</div>
+          <div>
+            <h3>Learn from experts</h3>
+            <p>Mentorship from MS-CC professionals, faculty partners, and cyberinfrastructure experts.</p>
+          </div>
+        </div>
+
+        <div class="why__item">
+          <div class="why__icon">💭</div>
+          <div>
+            <h3>Collaborate and create</h3>
+            <p>Team up to design and test sensor trust models and propose practical defenses.</p>
+          </div>
+        </div>
+
+        <div class="why__item">
+          <div class="why__icon">🎤</div>
+          <div>
+            <h3>Present and showcase</h3>
+            <p>Present to judges for awards recognizing technical rigor, defensive strategy, and clarity.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>How this benefits you:</strong>
+        Hands-on experience securing distributed data systems used in public health, environmental monitoring, and IoT.
+        Top projects may be highlighted at MS-CC events and connected to internships, research collaborations, and mentorship.
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule -->
+  <section class="section" id="schedule">
+    <div class="container">
+      <div class="section__head">
+        <h2>Schedule</h2>
+        <p>Two days. Mentors. Checkpoints. Final demo.</p>
+      </div>
+
+      <div class="schedule">
+        <div class="day">
+          <div class="day__top">
+            <span class="chip chip--gold">Day 1</span>
+            <h3>Kickoff + event detection</h3>
+          </div>
+
+          <div class="slot">
+            <div class="slot__time">Morning</div>
+            <div class="slot__body">
+              Welcome, theme overview, mentors, team formation, technical setup (API + time-series + anomaly basics)
+            </div>
+          </div>
+
+          <div class="slot">
+            <div class="slot__time">Afternoon</div>
+            <div class="slot__body">
+              Detect a real air quality event • ideation • work block • <strong>Checkpoint #1</strong> (approach + initial reliability)
+            </div>
+          </div>
+
+          <div class="slot">
+            <div class="slot__time">Evening</div>
+            <div class="slot__body">
+              Work session • optional lightning talk (sensor attacks + integrity failures) • stand-ups • plan trust model for Day 2
+            </div>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="day__top">
+            <span class="chip chip--gold">Day 2</span>
+            <h3>Trust model + defense + demo</h3>
+          </div>
+
+          <div class="slot">
+            <div class="slot__time">Morning</div>
+            <div class="slot__body">
+              Build trust score • evaluate reliability across sensors • <strong>Checkpoint #2</strong> (logic + anomalies found)
+            </div>
+          </div>
+
+          <div class="slot">
+            <div class="slot__time">Afternoon</div>
+            <div class="slot__body">
+              Stress-test with simulated bad data • defensive recommendations • submission (repo + deck/demo) • final presentations (10–15 min)
+            </div>
+          </div>
+
+          <div class="slot">
+            <div class="slot__time">Closing</div>
+            <div class="slot__body">
+              Judging + awards • next steps • networking
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logistics -->
+  <section class="section section--alt" id="logistics">
+    <div class="container">
+      <div class="section__head">
+        <h2>Logistics</h2>
+        <p>Travel support, hotel, reimbursement steps.</p>
+      </div>
+
+      <div class="grid2">
+        <div class="panel">
+          <h3>Travel support</h3>
+          <p>
+            Registration is open to students from MS-CC participating organizations.
+            Travel support (mileage reimbursement + hotel stay) is available for eligible participants who are not local,
+            but reside within <strong>250 miles</strong> of West Virginia State University.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3>Hotel recommendation</h3>
+          <p class="mono">
+            Sleep Inn &amp; Suites Cross Lanes – South Charleston<br/>
+            15 Goff Crossing Dr.<br/>
+            Cross Lanes, WV 25313
+          </p>
+          <div class="row">
+            <button class="btn btn--ghost" id="copyHotel" type="button">Copy address</button>
+            <a class="btn btn--ghost" target="_blank" rel="noopener"
+               href="https://www.google.com/maps/search/?api=1&query=Sleep%20Inn%20%26%20Suites%20Cross%20Lanes%20%E2%80%93%20South%20Charleston%2C%2015%20Goff%20Crossing%20Dr%2C%20Cross%20Lanes%2C%20WV%2025313">
+              Open in Maps
+            </a>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Reimbursements (important)</h3>
+          <ol>
+            <li><strong>By March 27:</strong> complete the MS-CC Travel Support Acceptance Form during registration.</li>
+            <li><strong>April 4:</strong> follow post-workshop email instructions to submit reimbursement requests.</li>
+          </ol>
+          <p class="fine">
+            Mileage within 250 miles. Hotel reimbursement for eligible MS-CC participants located more than 50 miles from the university.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3>Parking</h3>
+          <p>Parking information will be provided when available.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section__head">
+        <h2>FAQ</h2>
+        <p>Fast answers.</p>
+      </div>
+
+      <div class="faq">
+        <button class="faq__q" aria-expanded="false">Do I need a team? <span>+</span></button>
+        <div class="faq__a" hidden>No. You can come solo—there will be team formation.</div>
+
+        <button class="faq__q" aria-expanded="false">What should I build? <span>+</span></button>
+        <div class="faq__a" hidden>A trust score/model + analysis + defense recommendations + demo/presentation.</div>
+
+        <button class="faq__q" aria-expanded="false">Who can register? <span>+</span></button>
+        <div class="faq__a" hidden>Students from MS-CC participating organizations (per your announcement).</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Register -->
+  <section class="register" id="register">
+    <div class="container register__inner">
+      <div class="register__left">
+        <h2>Register for HackerHives</h2>
+        <p>
+          Join two days of learning, collaboration, and innovation at WVSU.
+          Build something real. Defend something real. Show it off.
+        </p>
+      </div>
+
+      <div class="register__card">
+        <div class="register__title">Registration link</div>
+        <div class="register__link mono" id="regLink">https://ms-cc.org/ms-cc-hackathon-at-west-virginia-state-university/</div>
+        <div class="register__actions">
+          <a class="btn btn--primary btn--lg" href="https://ms-cc.org/ms-cc-hackathon-at-west-virginia-state-university/" target="_blank" rel="noopener">Open Registration</a>
+          <button class="btn btn--ghost btn--lg" id="copyReg" type="button">Copy link</button>
+        </div>
+        <div class="fine">Deadline reminders + travel support form are included in registration.</div>
+      </div>
+    </div>
+  </section>
+
   <footer class="footer">
     <div class="container footer__inner">
       <div>
-        <div class="footer__brand">West Virginia State University • MS-CC Hackathon</div>
-        <div class="footer__fine">© 2026 • Built for WVSU theme (unofficial page draft)</div>
+        <div class="footer__name">HackerHives • West Virginia State University</div>
+        <div class="fine">Unofficial landing page draft for the WVSU-themed event.</div>
       </div>
-
-      <div class="footer__links">
-        <a href="#top">Back to top</a>
-        <a href="#conduct">Code of Conduct</a>
-        <a href="#register">Register</a>
-      </div>
+      <a href="#top" class="footer__top">Back to top ↑</a>
     </div>
   </footer>
 
-  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
-
+  <div class="toast" id="toast" hidden></div>
   <script src="script.js"></script>
 </body>
 </html>
