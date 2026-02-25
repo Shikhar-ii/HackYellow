@@ -1,170 +1,85 @@
-/* =========================
-   Utilities
-========================= */
-const $ = (sel, parent = document) => parent.querySelector(sel);
-const $$ = (sel, parent = document) => Array.from(parent.querySelectorAll(sel));
+const regURL = "https://ms-cc.org/ms-cc-hackathon-at-west-virginia-state-university/";
+const toast = document.getElementById("toast");
 
-function showToast(message) {
-  const toast = $("#toast");
-  toast.textContent = message;
+function showToast(msg){
+  toast.textContent = msg;
   toast.hidden = false;
-  toast.style.opacity = "1";
-  clearTimeout(showToast._t);
-  showToast._t = setTimeout(() => {
-    toast.style.opacity = "0";
-    setTimeout(() => (toast.hidden = true), 200);
-  }, 1800);
+  clearTimeout(showToast.t);
+  showToast.t = setTimeout(() => (toast.hidden = true), 1600);
 }
 
-/* =========================
-   Theme (dark/light)
-========================= */
-(function initTheme() {
-  const stored = localStorage.getItem("wvsu_theme");
-  if (stored) document.documentElement.setAttribute("data-theme", stored);
-
-  const icon = $("#themeIcon");
-  const current = document.documentElement.getAttribute("data-theme") || "dark";
-  icon.textContent = current === "light" ? "☀" : "☾";
-})();
-
-$("#themeToggle")?.addEventListener("click", () => {
-  const current = document.documentElement.getAttribute("data-theme") || "dark";
-  const next = current === "light" ? "dark" : "light";
-  document.documentElement.setAttribute("data-theme", next);
-  localStorage.setItem("wvsu_theme", next);
-  $("#themeIcon").textContent = next === "light" ? "☀" : "☾";
+// Mobile menu
+const menuBtn = document.getElementById("menuBtn");
+const mobileNav = document.getElementById("mobileNav");
+menuBtn?.addEventListener("click", () => {
+  const open = menuBtn.getAttribute("aria-expanded") === "true";
+  menuBtn.setAttribute("aria-expanded", String(!open));
+  mobileNav.hidden = open;
+});
+document.querySelectorAll(".mobile__link").forEach(a => {
+  a.addEventListener("click", () => {
+    menuBtn.setAttribute("aria-expanded", "false");
+    mobileNav.hidden = true;
+  });
 });
 
-/* =========================
-   Mobile menu
-========================= */
-const burger = $("#burger");
-const mobileMenu = $("#mobileMenu");
-
-function setMobile(open) {
-  if (!burger || !mobileMenu) return;
-  burger.setAttribute("aria-expanded", String(open));
-  mobileMenu.hidden = !open;
-}
-
-burger?.addEventListener("click", () => {
-  const open = burger.getAttribute("aria-expanded") === "true";
-  setMobile(!open);
+// Copy buttons
+document.getElementById("copyLink")?.addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText(regURL); showToast("Copied registration link."); }
+  catch { showToast("Copy failed. Please copy manually."); }
+});
+document.getElementById("copyReg")?.addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText(regURL); showToast("Copied registration link."); }
+  catch { showToast("Copy failed. Please copy manually."); }
+});
+document.getElementById("copyHotel")?.addEventListener("click", async () => {
+  const txt = "Sleep Inn & Suites Cross Lanes – South Charleston\n15 Goff Crossing Dr.\nCross Lanes, WV 25313";
+  try { await navigator.clipboard.writeText(txt); showToast("Hotel address copied."); }
+  catch { showToast("Copy failed. Please copy manually."); }
 });
 
-$$(".mobile__link").forEach((a) =>
-  a.addEventListener("click", () => setMobile(false))
-);
+// Countdown (Apr 3, 2026 9:00 AM local)
+const target = new Date("2026-04-03T09:00:00");
 
-/* =========================
-   Progress bar
-========================= */
-function updateProgress() {
-  const doc = document.documentElement;
-  const scrollTop = doc.scrollTop || document.body.scrollTop;
-  const scrollHeight = doc.scrollHeight - doc.clientHeight;
-  const p = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-  $("#progressBar").style.width = `${p}%`;
+function tick(){
+  const now = new Date();
+  let diff = Math.max(0, target - now);
+  const total = Math.floor(diff / 1000);
+
+  const d = Math.floor(total / 86400);
+  const h = Math.floor((total % 86400) / 3600);
+  const m = Math.floor((total % 3600) / 60);
+  const s = total % 60;
+
+  document.getElementById("d").textContent = d;
+  document.getElementById("h").textContent = String(h).padStart(2,"0");
+  document.getElementById("m").textContent = String(m).padStart(2,"0");
+  document.getElementById("s").textContent = String(s).padStart(2,"0");
 }
-window.addEventListener("scroll", updateProgress, { passive: true });
-updateProgress();
+tick();
+setInterval(tick, 1000);
 
-/* =========================
-   Countdown to April 3, 2026 (local)
-   If you want a specific kickoff time, change the ISO string.
-========================= */
-function startCountdown() {
-  const target = new Date("2026-04-03T09:00:00"); // 9:00 AM local
-  const el = {
-    d: $("#cdDays"),
-    h: $("#cdHours"),
-    m: $("#cdMins"),
-    s: $("#cdSecs"),
-  };
-
-  function tick() {
-    const now = new Date();
-    let diff = Math.max(0, target - now);
-
-    const sec = Math.floor(diff / 1000);
-    const days = Math.floor(sec / 86400);
-    const hours = Math.floor((sec % 86400) / 3600);
-    const mins = Math.floor((sec % 3600) / 60);
-    const secs = sec % 60;
-
-    if (el.d) el.d.textContent = String(days);
-    if (el.h) el.h.textContent = String(hours).padStart(2, "0");
-    if (el.m) el.m.textContent = String(mins).padStart(2, "0");
-    if (el.s) el.s.textContent = String(secs).padStart(2, "0");
-  }
-
-  tick();
-  setInterval(tick, 1000);
-}
-startCountdown();
-
-/* =========================
-   Tabs (Schedule Day 1 / Day 2)
-========================= */
-const tabDay1 = $("#tabDay1");
-const tabDay2 = $("#tabDay2");
-const panelDay1 = $("#panelDay1");
-const panelDay2 = $("#panelDay2");
-
-function setTab(day) {
-  const isDay1 = day === 1;
-
-  tabDay1.classList.toggle("is-active", isDay1);
-  tabDay2.classList.toggle("is-active", !isDay1);
-
-  tabDay1.setAttribute("aria-selected", String(isDay1));
-  tabDay2.setAttribute("aria-selected", String(!isDay1));
-
-  panelDay1.classList.toggle("is-active", isDay1);
-  panelDay2.classList.toggle("is-active", !isDay1);
-}
-
-tabDay1?.addEventListener("click", () => setTab(1));
-tabDay2?.addEventListener("click", () => setTab(2));
-
-/* =========================
-   Accordion (FAQ)
-========================= */
-$$(".acc").forEach((btn) => {
+// FAQ accordion
+document.querySelectorAll(".faq__q").forEach(btn => {
   btn.addEventListener("click", () => {
     const expanded = btn.getAttribute("aria-expanded") === "true";
     const panel = btn.nextElementSibling;
     btn.setAttribute("aria-expanded", String(!expanded));
-    btn.querySelector(".acc__icon").textContent = expanded ? "+" : "–";
-    if (panel) panel.hidden = expanded;
+    btn.querySelector("span").textContent = expanded ? "+" : "–";
+    panel.hidden = expanded;
   });
 });
 
-/* =========================
-   Copy buttons
-========================= */
-$("#copyHotel")?.addEventListener("click", async () => {
-  const text =
-    "Sleep Inn & Suites Cross Lanes – South Charleston\n15 Goff Crossing Dr.\nCross Lanes, WV 25313";
-  try {
-    await navigator.clipboard.writeText(text);
-    showToast("Hotel address copied.");
-  } catch {
-    showToast("Copy failed — please copy manually.");
-  }
-});
+// Active nav highlight on scroll
+const links = Array.from(document.querySelectorAll(".nav__link"));
+const sections = links.map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
 
-$("#copyShare")?.addEventListener("click", async () => {
-  const text =
-    "MS-CC Environmental Science Hackathon at West Virginia State University (WVSU)\n" +
-    "Securing Air Quality Data in Distributed Sensor Networks\n" +
-    "April 3–4, 2026\n" +
-    "Register: (paste your WVSU registration link here)";
-  try {
-    await navigator.clipboard.writeText(text);
-    showToast("Share text copied.");
-  } catch {
-    showToast("Copy failed — please copy manually.");
-  }
-});
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const id = "#" + entry.target.id;
+    links.forEach(a => a.classList.toggle("is-active", a.getAttribute("href") === id));
+  });
+}, { rootMargin: "-35% 0px -60% 0px", threshold: 0.01 });
+
+sections.forEach(s => obs.observe(s));
